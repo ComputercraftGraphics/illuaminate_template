@@ -1,0 +1,29 @@
+name: Build page
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build:
+    name: Build page
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: clean page
+      run: |
+        [ -d "build" ] && rm -r build
+    - name: Setup illuaminate
+      run: |
+        [ -d "bin" ] || mkdir bin
+        [ -f "bin/illuaminate" ] || wget -q -O bin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate
+        chmod +x bin/illuaminate
+    - name: Build page
+      run: |
+        ./bin/illuaminate doc-gen
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        force_orphan: true
+        commit_message: Build for
