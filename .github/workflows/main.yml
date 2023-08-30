@@ -11,11 +11,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: clean page
       run: |
-        [ -d "build" ] && rm -r build
+        if [ -d "build" ]; then rm -r "build"; fi
     - name: Setup illuaminate
       run: |
-        [ -d "bin" ] || mkdir bin
-        [ -f "bin/illuaminate" ] || wget -q -O bin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate
+        if [ ! -d "bin" ]; then mkdir bin; fi
+        if [ ! -f "bin/illuaminate" ]; then wget -q -O bin/illuaminate https://squiddev.cc/illuaminate/linux-x86-64/illuaminate; fi
         chmod +x bin/illuaminate
     - name: Build page
       run: |
