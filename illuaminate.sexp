@@ -12,8 +12,8 @@
   (site
     (title "Illuaminate Template")
     (logo src/web/pack.png)
-    (url https://ccg.madefor.cc/)
-    (source-link https://github.com/ComputercraftGraphics/illuaminate_template)
+    (url https://computercraftgraphics.github.io/illuaminate_template/)
+    (source-link https://github.com/ComputercraftGraphics/illuaminate_template/)
 
     (styles src/web/styles.css)
     ;; (scripts build/rollup/index.js)
