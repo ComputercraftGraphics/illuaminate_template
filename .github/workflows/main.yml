@@ -22,6 +22,7 @@ jobs:
     - name: Build page
       run: |
         ./bin/illuaminate doc-gen
+        cp ./resources/fonts/* ./docs/
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
