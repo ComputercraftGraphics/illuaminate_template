@@ -6,8 +6,8 @@
 
 
 (doc
-  (destination build/)
-  (index doc/index.md)
+  (destination docs/)
+  (index web/index.md)
 
   (site
     (title "Illuaminate Template")
@@ -17,7 +17,7 @@
 
     (styles src/web/styles.css)
     ;; (scripts build/rollup/index.js)
-    (head doc/head.html)
+    (head web/head.html)
   )
 
   (module-kinds
